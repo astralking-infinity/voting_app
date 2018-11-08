@@ -1,0 +1,160 @@
+html, body, #root {
+	height: 100%;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+}
+
+#root main {
+	flex: 1 0 auto;
+}
+
+#root nav, #root footer {
+	flex: none;
+}
+
+#root input[type="image"]:focus {
+	outline: none;
+}
+
+#root input[type="image"]:hover {
+	box-shadow: 0 0 30px 0 rgba(50, 190, 166, 0.67);
+}
+
+
+/* ################# PollDetail.js styles ################# */
+.styled-radio label {
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid #D1D3D4;
+	font-weight: normal;
+}
+
+.styled-radio input[type="radio"]:empty {
+	display: none;
+}
+
+.styled-radio input[type="radio"]:empty ~ label {
+	position: relative;
+	padding: 0.5em 0.5em 0.5em 3em;
+	/*line-height: 2.5em;*/
+	/*text-indent: 3.25em;*/
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.styled-radio input[type="radio"]:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 3px 0 0 3px;
+}
+
+.styled-radio input[type="radio"]:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+.styled-radio input[type="radio"]:hover:not(:checked) ~ label:before {
+	content: '\2714';
+	padding-top: 0.5em;
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+.styled-radio input[type="radio"]:checked ~ label {
+	color: #777;
+}
+
+.styled-radio input[type="radio"]:checked ~ label:before {
+	content: '\2714';
+	padding-top: 0.5em;
+	text-indent: .9em;
+	color: #333;
+	bacground-color: #ccc;
+}
+
+.styled-radio input[type="radio"]:focus ~ label:before {
+	box-shadow: 0 0 0 3px #999;
+	background-color: green;  /* for testing cause i can't see the effect */
+}
+
+.styled-radio input[type="radio"]:checked ~ label:before {
+	color: #fff;
+	background-color: #5cb85c;
+}
+
+.chart-container {
+	position: relative;
+	height: 300px;
+}
+
+.legend-container {
+	margin-top: 10px;
+	text-align: justify;
+}
+
+ul[class*="legend"] li {
+	list-style:none;
+	/*display: inline-block;*/
+	margin-right: 10px;
+}
+
+span[class*="legend-icon"] {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
+}
+/* ######################################################## */
+
+
+/* ################# Profile.js styles ################# */
+/* modal css */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow:;
+    outline: 0;
+}
+
+/*
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    overflow:;
+    outline: 0;
+}
+.modal-open .modal {
+	overflow-x: hidden; // for scrolls
+	overflow-y: auto;
+}
+*/
+
+.sidenav-item {
+	max-height: 500px;
+	overflow: auto;
+}
+/* ######################################################## */

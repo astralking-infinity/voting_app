@@ -1,0 +1,12 @@
+# Django  files
+__pycache__/
+*.py[cod]
+db.sqlite3
+
+secret_key.txt
+TODO.txt
+
+# React files
+frontend/.git
+frontend/.gitignore
+frontend/node_modules/
