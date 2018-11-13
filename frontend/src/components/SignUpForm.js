@@ -63,7 +63,7 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { username, email, password1, password2, errors } = this.state;
+    const { username, password1, password2, errors } = this.state;
     const { isAuthenticated } = this.props;
 
     return (
