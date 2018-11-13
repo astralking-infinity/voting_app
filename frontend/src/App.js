@@ -84,8 +84,8 @@ class App extends Component {
   }
 
   render() {
-    const { token } = this.state;
-    console.log('token: ' + token);
+    // const { token } = this.state;
+    // console.log('token: ' + token);
 
     return (
       <BrowserRouter>
