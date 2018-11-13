@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 
+from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 
 # from api_polls import views
@@ -26,14 +27,10 @@ from rest_framework.routers import DefaultRouter
 # router.register('choices', views.ChoiceViewSet)
 
 urlpatterns = [
-    # path('', RedirectView.as_view(url='api/')),
-
-    # path('api/', include('api_polls.urls')),
-    # path('api/', include('polls.urls')),
-    # path('mimicapi/', include('mimicpolls.urls')),
+    path('', RedirectView.as_view(url='polls/')),
     path('api/', include('polls_api.urls')),
-
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('docs/', include_docs_urls(title='Polls Api')),
     path('admin/', admin.site.urls),
 ]
