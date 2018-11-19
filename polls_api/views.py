@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, exceptions
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import (
     ListCreateAPIView,
@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Poll, Choice
+from .permissions import IsOwner
 from .serializers import (
     PollSerializer, ChoiceSerializer, VoteSerializer, UserSerializer
 )
@@ -51,9 +52,10 @@ class CreateUser(CreateAPIView):
 
 class UserPollList(ListAPIView):
     serializer_class = PollSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, IsOwner)
 
     def get_queryset(self):
         """List all polls created by the authenticated user passed in the URL"""
-        user = self.kwargs['user']
-        return Poll.objects.filter(created_by__username=user)
+        user_requested = self.kwargs['user']
+        self.check_object_permissions(self.request, user_requested)
+        return Poll.objects.filter(created_by__username=user_requested)
